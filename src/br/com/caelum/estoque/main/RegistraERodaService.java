@@ -8,7 +8,8 @@ import br.com.caelum.estoque.rmi.EstoqueService;
 public class RegistraERodaService {
 	public static void main(String[] args) throws Exception {
 		LocateRegistry.createRegistry(1099);
-		Naming.rebind("/estoque", new EstoqueService());
+		Naming.rebind("rmi://localhost:1099/estoque", new EstoqueService());
+		// Naming.rebind("/estoque", new EstoqueService());
 		System.out.println("Estoque registrado e rodando");
 	}
 }
